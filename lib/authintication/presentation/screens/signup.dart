@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:zouina/authintication/presentation/screens/otp.dart';
 import 'package:zouina/authintication/presentation/widgets/custum_text_field.dart';
 import 'package:zouina/authintication/presentation/widgets/password_field.dart';
 import 'package:zouina/core/app_colors.dart';
@@ -137,8 +138,8 @@ TextEditingController?  NameCtrl = TextEditingController();
                         hint: "••••••••••••",
                         text: "CONFIRM PASSWORD",
                         icon: Icons.lock_reset_outlined,
-                        ctrl: EmailCtrl,
-                        validator: (e) {return Validator.validateEmail(e!);},
+                        ctrl:  Passwordctrl,
+                        validator: (passw) {return Validator.validatePassword(passw!);},
                       ),
                       // SizedBox(height: 40),
                       InkWell(
@@ -146,7 +147,8 @@ TextEditingController?  NameCtrl = TextEditingController();
 
                           if (formstate.currentState!.validate())
                           {
-                            log("account created");
+                             Navigator.push(context,
+                               MaterialPageRoute(builder:  (context) => Otp(),));
                           }
 
 
